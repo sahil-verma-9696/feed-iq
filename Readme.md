@@ -2,21 +2,25 @@
 
 FeedIQ is feedback Sentiment Analyzer an intelligent web-based platform that empowers users to collect, analyze, visualize, and interact with feedback data—typically gathered via forms such as Google Forms, surveys, or custom events. It uses sentiment analysis and trend detection to extract meaningful insights and improve decision-making.
 
-## 🚀 Tech Stack
+## ⚙️ Tech Stack
 
-### Frontend
-- React 18+ with Vite
-- Tailwind CSS for styling
-- Netlify for deployment
+- Frontend: React, Tailwind CSS, Redux Toolkit
+- Charts & Visualization: Recharts
+- PDF/CSV Export: jsPDF, PapaParse, FileSaver.js
+- Icons: Lucide React
+- State Management: Redux
 
 ### Backend
-- Python 3.x
-- FastAPI
-- Railway for deployment
+
+- Nodejs
+- Express
+- Render for deployment
+- LLM(Geminie) integration for enhanced feedback analysis,chatbot.
 
 ## 📋 Prerequisites
 
 ### Common Requirements
+
 - Git
 - Make (GNU Make)
   - Windows: Install via [Chocolatey](https://chocolatey.org/install) or [Scoop](https://scoop.sh/)
@@ -24,84 +28,103 @@ FeedIQ is feedback Sentiment Analyzer an intelligent web-based platform that emp
   - Linux: Install via package manager (e.g., `sudo apt-get install make`)
 
 ### For Frontend Development
+
 - Node.js (v22.13.1)
   - Windows: Download from [Node.js website](https://nodejs.org/)
   - macOS: Install via `brew install node@22` or use [nvm](https://github.com/nvm-sh/nvm)
   - Linux: Install via package manager or use [nvm](https://github.com/nvm-sh/nvm)
 - npm or yarn package manager
 
-### For Backend Development
-- Python 3.x
-  - Windows: Download from [Python website](https://www.python.org/downloads/)
-  - macOS: Install via `brew install python@3.11` or download from Python website
-  - Linux: Install via package manager (e.g., `sudo apt-get install python3.11`)
-- pip (Python package manager)
-- Virtual environment (recommended)
-
 ## 🚀 Features
+
 ### 📥 CSV Upload & Event Management
+
 Easily upload feedback data (CSV from Google Forms or other platforms) and organize them into custom events with specific aspects (e.g., UI, Support, Features).
 
 ### 📈 Dashboard & Visual Insights
+
 Gain instant visibility into sentiment distribution, aspect-based sentiment breakdowns, and user satisfaction through rich interactive charts.
 
 ### 📊 Trend Analysis
+
 Identify changes in user sentiment and key feedback themes over time. Visualize patterns and emerging issues with charts and summary lists.
 
 ### 🧠 Chat with Your Data
+
 Ask natural language questions like “What’s the most common complaint?” or “How has sentiment changed this week?” and receive smart, AI-powered answers.
 
 ### 📤 Download Reports
+
 Export your feedback reports in CSV or PDF format for sharing, documentation, or further analysis.
 
 ### 🌗 Dark Mode & Responsive Design
+
 Sleek and accessible interface with full support for dark mode and all screen sizes.
+
+## 🎯 Use Cases
+
+- Product feedback tracking
+- Event or workshop evaluation
+- Educational course reviews
+- Customer service performance analysis
 
 ### Environment Variables
 
 Both frontend and backend use environment variables for configuration. Create the following `.env` files:
 
 #### Backend (.env)
+
 Create `backend/.env`:
+
 ```env
 APP_NAME=Hackathon FastAPI Backend
 API_VERSION=v1
 ```
 
 #### Frontend (.env)
+
 Create `frontend/.env`:
+
 ```env
 VITE_API_URL=http://localhost:3001
 ```
 
 Note: `.env` files are not tracked in Git for security reasons. Make sure to:
+
 1. Never commit `.env` files to version control
 2. Keep a `.env.example` file in your repository as a template
 3. Document all required environment variables in your README
 
 ### Clone Your Fork
+
 ```bash
 git clone https://github.com/guvi-research/react-python-fsd-v1.git
 cd backend
 ```
 
 ### Frontend Setup
+
 1. Navigate to the frontend directory:
+
 ```bash
 cd frontend
 ```
 
 2. Using Make (Recommended):
+
 ```bash
 make run-local
 ```
+
 This command will:
+
 - Check Node.js version
 - Install dependencies
 - Start the development server
 - Open the browser automatically
 
 If you encounter issues with `make run-local`, you can run the commands manually:
+
 ```bash
 # 1. Install dependencies
 npm install
@@ -113,16 +136,21 @@ npm run dev
 The frontend will be available at `http://localhost:3000`
 
 ### Backend Setup
+
 1. Navigate to the backend directory:
+
 ```bash
 cd backend
 ```
 
 2. Using Make (Recommended):
+
 ```bash
 make run-local
 ```
+
 This command will:
+
 - Check Python installation
 - Set up virtual environment
 - Install dependencies
@@ -130,6 +158,7 @@ This command will:
 - Open the API documentation in browser
 
 If you encounter issues with `make run-local`, you can run the commands manually:
+
 ```bash
 # 1. Create virtual environment
 # Windows
@@ -153,18 +182,23 @@ API documentation will be available at `http://localhost:3001/docs`
 ## 🚀 Deployment
 
 ### Frontend Deployment (Netlify)
+
 Using Make (Recommended):
+
 ```bash
 cd frontend
 make deploy
 ```
+
 This command will:
+
 - Check Node.js version
 - Install dependencies
 - Build the project
 - Guide you through Netlify deployment
 
 If you encounter issues with `make deploy`, you can deploy manually:
+
 ```bash
 # 1. Build the project
 npm run build
@@ -174,17 +208,22 @@ npx netlify deploy --prod --dir=dist
 ```
 
 ### Backend Deployment (Railway)
+
 Using Make (Recommended):
+
 ```bash
 cd backend
 make deploy
 ```
+
 This command will:
+
 - Check Railway CLI installation
 - Verify authentication
 - Guide you through Railway deployment
 
 If you encounter issues with `make deploy`, you can deploy manually:
+
 ```bash
 # 1. Install Railway CLI
 npm install @railway/cli
@@ -206,23 +245,26 @@ railway up
 1. Deploy your backend to Railway first
 2. Get your backend URL from Railway (it will look like `https://your-app-name.railway.app`)
 3. Create `frontend/.env.production`:
+
 ```env
 VITE_API_URL=https://your-app-name.railway.app
 ```
+
 4. Only then proceed with frontend deployment
 
 If you skip this step, your frontend will not be able to connect to your backend in production!
 
-
 ## 📚 Learning Resources
 
 ### Frontend
+
 - [React Documentation](https://react.dev)
 - [Vite Documentation](https://vitejs.dev/guide/)
 - [Tailwind CSS Documentation](https://tailwindcss.com/docs)
 - [Netlify Documentation](https://docs.netlify.com)
 
 ### Backend
+
 - [FastAPI Documentation](https://fastapi.tiangolo.com/)
 - [Python Documentation](https://docs.python.org/3/)
 - [Railway Documentation](https://docs.railway.app)
@@ -253,10 +295,12 @@ react-python-fsd-v1/
 ## 🔧 Available Make Commands
 
 ### Frontend
+
 - `make run-local` - Start development server
 - `make deploy` - Deploy to Netlify
 
 ### Backend
+
 - `make run-local` - Start development server
 - `make deploy` - Deploy to Railway
 

@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { Sidebar } from "./components/layout/sidebar";
+import { Sidebar } from "./components/layout/Sidebar";
 import { pages } from "./redux/slices/appSlice";
 
 export default function App() {

@@ -1,4 +1,6 @@
 import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+
 import {
   LineChart,
   Line,
@@ -12,6 +14,7 @@ import {
   Legend,
 } from "recharts";
 import { ThumbsUp, ThumbsDown, Meh } from "lucide-react";
+import { getEvents } from "../../redux/slices/eventSlice";
 
 // Dummy sentiment data
 const trendData = [
@@ -31,6 +34,10 @@ const pieData = [
 const COLORS = ["#4ade80", "#f87171", "#facc15"]; // green, red, yellow
 
 export default function Index() {
+  const dispatch = useDispatch();
+  dispatch(getEvents());
+  const { events, loading } = useSelector((state) => state.event);
+
   const stats = [
     {
       title: "Positive",
