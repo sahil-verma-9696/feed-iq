@@ -2,6 +2,85 @@
 
 FeedIQ is feedback Sentiment Analyzer an intelligent web-based platform that empowers users to collect, analyze, visualize, and interact with feedback data—typically gathered via forms such as Google Forms, surveys, or custom events. It uses sentiment analysis and trend detection to extract meaningful insights and improve decision-making.
 
+# Project snap 
+
+## Home page
+![image](https://github.com/user-attachments/assets/2b0776d8-5436-418d-b451-1c26a4cc319d)
+
+## Dashboard page
+![image](https://github.com/user-attachments/assets/5c46d6cd-1d3e-4ab0-92d2-1248e2556734)
+
+## Report page
+![image](https://github.com/user-attachments/assets/6d63f9e0-67c5-44db-a3e2-c98a713e8a85)
+
+## Trend analysis
+![image](https://github.com/user-attachments/assets/f51c2998-cb10-47fc-8403-2185e5d5e4a4)
+![image](https://github.com/user-attachments/assets/0ad934e1-56bd-4404-b95e-d77f67fdf2a1)
+
+## Create form
+![image](https://github.com/user-attachments/assets/40d1bfe0-faf9-46d4-9fed-c321828f1dc7)
+
+
+## Feedback Sentiment analysis responce by backend
+```json
+{
+  "userName": "aaju Mehta",
+  "eventId": "682beeb820cf2087ed651b24",
+  "aspectFeedback": {
+    "projector": {
+      "text": "worst",
+      "sentiment": "negative",
+      "keywords": [
+        "worst",
+        "poor experience",
+        "unacceptable",
+        "disappointing",
+        "improvements needed"
+      ],
+      "suggestion": "Conduct a thorough post-event survey with more detailed questions to understand specific areas of dissatisfaction and gather constructive feedback for improvement."
+    },
+    "networking": {
+      "text": "booring man",
+      "sentiment": "negative",
+      "keywords": [
+        "boring",
+        "speaker",
+        "engagement",
+        "presentation",
+        "monotonous"
+      ],
+      "suggestion": "Incorporate interactive elements, such as Q&A sessions, polls, or group activities, into presentations to increase audience engagement and prevent monotony."
+    },
+    "refreshments": {
+      "text": "no any air",
+      "sentiment": "negative",
+      "keywords": [
+        "lack of air",
+        "poor ventilation",
+        "uncomfortable environment",
+        "air quality",
+        "breathing issues"
+      ],
+      "suggestion": "Invest in better ventilation systems or ensure adequate air circulation to improve attendee comfort and well-being."
+    }
+  },
+  "overallFeedback": {
+    "text": "bad expreience",
+    "sentiment": "negative",
+    "keywords": [
+      "bad experience",
+      "negative",
+      "poor"
+    ],
+    "suggestion": "Conduct a post-event survey with more specific questions to understand the reasons behind negative feedback and address them proactively."
+  },
+  "_id": "682bf9d93ea83f88fc1f1a0f",
+  "timestamp": "2025-05-20T03:41:13.983Z",
+  "__v": 0
+}
+```
+
+
 ## ⚙️ Tech Stack
 
 - Frontend: React, Tailwind CSS, Redux Toolkit
