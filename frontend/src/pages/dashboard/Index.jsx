@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import {
@@ -13,10 +13,9 @@ import {
   ResponsiveContainer,
   Legend,
 } from "recharts";
-import { ThumbsUp, ThumbsDown, Meh } from "lucide-react";
+import { ThumbsUp, ThumbsDown, Meh, CalendarDays } from "lucide-react";
 import { getEvents } from "../../redux/slices/eventSlice";
 
-// Dummy sentiment data
 const trendData = [
   { date: "May 01", positive: 30, negative: 10, neutral: 15 },
   { date: "May 02", positive: 40, negative: 12, neutral: 18 },
@@ -31,12 +30,15 @@ const pieData = [
   { name: "Neutral", value: 44 },
 ];
 
-const COLORS = ["#4ade80", "#f87171", "#facc15"]; // green, red, yellow
+const COLORS = ["#4ade80", "#f87171", "#facc15"];
 
 export default function Index() {
   const dispatch = useDispatch();
-  dispatch(getEvents());
   const { events, loading } = useSelector((state) => state.event);
+
+  useEffect(() => {
+    dispatch(getEvents());
+  }, [dispatch]);
 
   const stats = [
     {
@@ -117,6 +119,57 @@ export default function Index() {
             </PieChart>
           </ResponsiveContainer>
         </div>
+      </div>
+
+      {/* Events Section */}
+      <div className="bg-gray-100 dark:bg-gray-800 p-6 rounded-xl shadow mt-8">
+        <div className="flex justify-between items-center mb-4">
+          <h2 className="text-xl font-semibold">Your Events</h2>
+          <span className="text-sm text-gray-600 dark:text-gray-300">
+            Total Events: <strong>{events.length}</strong>
+          </span>
+        </div>
+
+        {loading ? (
+          <p>Loading events...</p>
+        ) : events.length === 0 ? (
+          <p>No events found.</p>
+        ) : (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {events.map((event) => (
+              <div
+                key={event._id}
+                className="bg-white dark:bg-gray-900 p-5 rounded-xl shadow border border-gray-200 dark:border-gray-700 hover:shadow-lg transition"
+              >
+                <h3 className="text-lg font-bold text-indigo-600 dark:text-indigo-400">
+                  {event.eventName}
+                </h3>
+                <p className="text-sm text-gray-600 dark:text-gray-400">
+                  <CalendarDays className="inline w-4 h-4 mr-1" />
+                  {new Date(event.eventDate).toLocaleDateString()}
+                </p>
+                <p className="mt-2 text-sm text-gray-700 dark:text-gray-300">
+                  <strong>Type:</strong> {event.eventType}
+                </p>
+                <p className="text-sm text-gray-700 dark:text-gray-300">
+                  <strong>Club:</strong> {event.clubName}
+                </p>
+
+                {/* Aspects */}
+                <div className="mt-3 flex flex-wrap gap-2">
+                  {event.aspects.map((aspect, index) => (
+                    <span
+                      key={index}
+                      className="bg-indigo-100 text-indigo-800 text-xs font-medium px-2.5 py-0.5 rounded dark:bg-indigo-900 dark:text-indigo-300"
+                    >
+                      {aspect}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );

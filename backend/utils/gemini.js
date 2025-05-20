@@ -33,18 +33,18 @@ async function getLLMFeedbackAnalysis(text) {
       contents: prompt,
     });
 
-    console.log("response:", response);
-    console.log("response text:", response.text);
+    // console.log("response:", response);
+    // console.log("response text:", response.text);
 
     const rawText = response.text; 
-    console.log("🔍 Raw Response:", rawText);
+    // console.log("🔍 Raw Response:", rawText);
 
     // Extract JSON safely
     const jsonStart = response.text.indexOf("{");
     const jsonEnd = response.text.lastIndexOf("}");
     const jsonStr = response.text.slice(jsonStart, jsonEnd + 1);
 
-    console.log("🔍 JSON Response:", jsonStr);
+    // console.log("🔍 JSON Response:", jsonStr);
 
     return JSON.parse(jsonStr);
   } catch (err) {

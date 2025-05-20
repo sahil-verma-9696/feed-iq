@@ -3,7 +3,8 @@ const { getLLMFeedbackAnalysis } = require("../utils/gemini");
 
 exports.submitFeedback = async (req, res) => {
   try {
-    const { userName, eventId, aspectFeedback, overallFeedback } = req.body;
+    const eventId = req.params.eventId;
+    const { userName, aspectFeedback, overallFeedback } = req.body;
 
     const analyzedAspects = {};
     for (const aspect in aspectFeedback) {

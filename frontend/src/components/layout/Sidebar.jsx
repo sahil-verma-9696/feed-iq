@@ -11,12 +11,15 @@ import {
   Menu,
 } from "lucide-react";
 import { setPage } from "../../redux/slices/appSlice";
+import { useNavigate } from "react-router-dom";
 
 export function Sidebar() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [collapsed, setCollapsed] = useState(false);
 
   const handleNavClick = (pageKey) => {
+    navigate("/");
     dispatch(setPage(pageKey));
   };
 

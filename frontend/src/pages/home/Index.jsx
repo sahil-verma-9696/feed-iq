@@ -1,13 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import { Upload, CalendarPlus, Settings2 } from "lucide-react";
-import EventPopover from "../../components/EventPopover";
+import CreateEventPopover from "../../components/CreateEventPopover";
 
 export default function Index() {
+  const [open, setOpen] = useState(false);
+
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900 p-8 text-gray-800 dark:text-white">
       <h1 className="text-3xl font-bold mb-8">Welcome to SentimentIQ</h1>
-
-      <EventPopover />
+      <CreateEventPopover open={open} setOpen={setOpen} />
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {/* Upload CSV Card */}
         <div className="bg-gray-100 dark:bg-gray-800 p-6 rounded-xl shadow hover:shadow-lg transition-all cursor-pointer">
@@ -21,7 +22,10 @@ export default function Index() {
         </div>
 
         {/* Create Event Card */}
-        <div className="bg-gray-100 dark:bg-gray-800 p-6 rounded-xl shadow hover:shadow-lg transition-all cursor-pointer">
+        <div
+          onClick={() => setOpen(true)}
+          className="bg-gray-100 dark:bg-gray-800 p-6 rounded-xl shadow hover:shadow-lg transition-all cursor-pointer"
+        >
           <div className="flex items-center gap-4 mb-4">
             <CalendarPlus className="text-green-500 w-8 h-8" />
             <h2 className="text-xl font-semibold">Create a New Event</h2>

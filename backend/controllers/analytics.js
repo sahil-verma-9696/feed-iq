@@ -91,7 +91,6 @@ async function getEventAspects(req, res) {
       console.log("Aspect keys in this feedback:", Object.keys(aspects)); // debug print
 
       Object.entries(aspects).forEach(([aspect, data]) => {
-        console.log(`Aspect: ${aspect}`, data); // debug print
         if (!aspectData[aspect]) {
           aspectData[aspect] = {
             count: 0,
