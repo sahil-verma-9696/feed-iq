@@ -48,7 +48,7 @@ export function Sidebar() {
             collapsed ? "hidden" : "block"
           }`}
         >
-          SentimentIQ
+          FeedIQ
         </span>
         <button onClick={() => setCollapsed(!collapsed)}>
           <Menu size={20} />
